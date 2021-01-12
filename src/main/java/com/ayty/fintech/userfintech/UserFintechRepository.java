@@ -1,0 +1,8 @@
+package com.ayty.fintech.userfintech;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserFintechRepository extends JpaRepository<UserFintech, Long> {
+    UserFintech findById(long id);
+}
