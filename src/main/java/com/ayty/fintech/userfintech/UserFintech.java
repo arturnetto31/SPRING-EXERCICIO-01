@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
- */
+*/
 public class UserFintech implements Serializable {
     public static final long serialVersionUID = 1L;
 
@@ -39,18 +39,22 @@ public class UserFintech implements Serializable {
     }
 
     public long getId() {
+
         return id;
     }
 
     public void setId(long id) {
+
         this.id = id;
     }
 
     public String getFullname() {
+
         return fullname;
     }
 
     public void setFullname(String fullname) {
+
         this.fullname = fullname;
     }
 
@@ -59,22 +63,27 @@ public class UserFintech implements Serializable {
     }
 
     public void setEmail(String email) {
+
         this.email = email;
     }
 
     public String getPassword() {
+
         return password;
     }
 
     public void setPassword(String password) {
+
         this.password = password;
     }
 
     public String getCpf() {
+
         return cpf;
     }
 
     public void setCpf(String cpf) {
+
         this.cpf = cpf;
     }
 

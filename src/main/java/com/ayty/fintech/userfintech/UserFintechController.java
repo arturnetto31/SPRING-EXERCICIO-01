@@ -1,6 +1,7 @@
 package com.ayty.fintech.userfintech;
 
 
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,16 +20,16 @@ public class UserFintechController {
     }
 
     @GetMapping("/user/{id}")
-    public UserFintech userFintech(@PathVariable(value="id") long id) {
+    public UserFintech userFintech(@PathVariable(value="id") long id) throws NotFound {
+       // return userFintechRepository.findById(id).orElseThrow(NotFound::new);
         return userFintechRepository.findById(id);
     }
 
     @GetMapping("/users/{name}")
     public List<UserFintech> listUserFintechWithName (@PathVariable(value="name") String fullname) {
-        return userFintechRepository.findByContainingFullname(fullname);
+        return userFintechRepository.findByFullname(fullname);
     }
-
-
+    
     @PostMapping("/user")
     public UserFintech saveUserFintech(@RequestBody UserFintech userFintech) {
         return  userFintechRepository.save(userFintech);
