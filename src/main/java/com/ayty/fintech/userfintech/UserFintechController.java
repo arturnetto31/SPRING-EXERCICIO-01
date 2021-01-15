@@ -2,7 +2,6 @@ package com.ayty.fintech.userfintech;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,9 +23,25 @@ public class UserFintechController {
         return userFintechRepository.findById(id);
     }
 
+    @GetMapping("/users/{name}")
+    public List<UserFintech> listUserFintechWithName (@PathVariable(value="name") String fullname) {
+        return userFintechRepository.findByContainingFullname(fullname);
+    }
+
+
     @PostMapping("/user")
     public UserFintech saveUserFintech(@RequestBody UserFintech userFintech) {
         return  userFintechRepository.save(userFintech);
+    }
+
+    @DeleteMapping("/user")
+    public void deleteUserFintech(@RequestBody UserFintech userFintech) {
+        userFintechRepository.delete(userFintech);
+    }
+
+    @PutMapping("/user")
+    public UserFintech replaceUserFintech(@RequestBody UserFintech userFintech) {
+        return userFintechRepository.save(userFintech);
     }
 
 }
