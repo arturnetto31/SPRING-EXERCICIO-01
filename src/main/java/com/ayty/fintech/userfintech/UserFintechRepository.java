@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserFintechRepository extends JpaRepository<UserFintech, Long> {
     UserFintech findById(long id);
-    List<UserFintech> findByFullname(String fullname);
+    List<UserFintech> findByFullnameContaining(String fullname);
 }

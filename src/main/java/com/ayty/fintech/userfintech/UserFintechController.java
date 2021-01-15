@@ -26,10 +26,10 @@ public class UserFintechController {
     }
 
     @GetMapping("/users/{name}")
-    public List<UserFintech> listUserFintechWithName (@PathVariable(value="name") String fullname) {
-        return userFintechRepository.findByFullname(fullname);
+    public List<UserFintech> listUserWithName (@PathVariable(value="name") String fullname) {
+        return userFintechRepository.findByFullnameContaining(fullname);
     }
-    
+
     @PostMapping("/user")
     public UserFintech saveUserFintech(@RequestBody UserFintech userFintech) {
         return  userFintechRepository.save(userFintech);
